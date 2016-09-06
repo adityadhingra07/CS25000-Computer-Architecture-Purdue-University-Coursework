@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo 100 > bubble_random;
+i=0
+for i in {1..100}
+do
+ echo $(( $RANDOM % 200 -100 )) >> bubble_random
+done

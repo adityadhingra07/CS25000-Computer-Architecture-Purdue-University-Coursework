@@ -1,0 +1,67 @@
+#!/bin/bash
+(cd ../;make clean;make)
+sudo chmod +x mystrlen
+sudo chmod +x subString
+sudo chmod +x compute
+sudo chmod +x bubble
+rm -f total.txt
+rm -f *.out
+total=0
+totalmax=0
+
+# Test driver
+function runtest {
+  prog=$1
+  input=$2
+  des=$3
+  grade=$4
+  totalmax=`expr $totalmax + $grade`
+  echo ----- $prog: "$des" -----
+  cat $input | ../$prog > $des.user.out
+  cat $input | ./$prog > $des.test.out
+  diff $des.user.out $des.test.out
+  if [ $? -eq 0 ]; then
+      echo $des passed...;
+      printf "%-36s: passed : %-3d of %-3d\n" "$des" $grade $grade >>total.txt
+      total=`expr $total + $grade`;
+  else
+      echo $des failed...;
+      printf "%-36s: failed : %-3d of %-3d\n" "$des" 0 $grade >> total.txt
+  fi
+}
+runtest mystrlen mystrlen1 "mystrlen1" 5;
+runtest mystrlen mystrlen2 "mystrlen2" 5;
+runtest mystrlen mystrlen3 "mystrlen3" 5;
+runtest subString subString_find1 "subString_find1" 5;
+runtest subString subString_find2 "subString_find2" 5;
+runtest subString subString_notfound1 "subString_notfound1" 5;
+runtest subString subString_notfound2 "subString_notfound2" 5;
+runtest compute compute_add1 "compute_add1" 2;
+runtest compute compute_add2 "compute_add2" 2;
+runtest compute compute_minus1 "compute_minus1" 2;
+runtest compute compute_minus2 "compute_minus2" 2;
+runtest compute compute_times1 "compute_times1" 2;
+runtest compute compute_times2 "compute_times2" 2;
+runtest compute compute_divide1 "compute_divide1" 2;
+runtest compute compute_divide2 "compute_divide2" 2;
+runtest compute compute_divide3 "compute_divide3" 2;
+runtest compute compute_divide4 "compute_divide4" 2;
+runtest bubble bubble_positive1 "bubble_positive1" 5;
+runtest bubble bubble_positive2 "bubble_positive2" 5;
+runtest bubble bubble_positive3 "bubble_positive3" 5;
+runtest bubble bubble_negtive1 "bubble_negtive1" 5;
+runtest bubble bubble_100input "bubble_100input" 5;
+runtest bubble bubble_1000input "bubble_1000input" 5;
+bash bubble_make_random_input;
+runtest bubble bubble_random "bubble_random" 5;
+runtest bubble bubble_zeroandone "bubble_zeroandone" 5;
+
+echo > test.out
+echo >> test.out
+echo   "-------------------------------------------------" >> test.out
+echo   "CS250: Lab 6. coding in assembly.   User:  $USER   " >> test.out
+echo   "-------------------------------------------------" >> test.out
+cat total.txt >> test.out
+echo   "-------------------------------------------------" >> test.out
+echo   "                              	    Total: " $total of 95 >> test.out
+cat test.out
