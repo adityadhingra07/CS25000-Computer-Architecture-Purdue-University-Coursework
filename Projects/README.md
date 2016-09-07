@@ -3,6 +3,7 @@ The folder contains all the `(8) Projects` assigned and therefore, completed and
 
 The **Projects** are as follows:
 
+* `Project-02:` **Studying Gate Behavior and More Digital Logic**
 * `Project-03:` **Sequential Circuits**
 * `Project-04:` **More on Sequential Circuits**
 * `Project-05:` **RGB Color Blender, Using GDB, Name, Compare**
