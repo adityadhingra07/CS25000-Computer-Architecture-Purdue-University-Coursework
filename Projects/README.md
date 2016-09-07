@@ -3,6 +3,8 @@ The folder contains all the `(8) Projects` assigned and therefore, completed and
 
 The **Projects** are as follows:
 
+* `Project-03:` **Sequential Circuits**
+* `Project-04:` **More on Sequential Circuits**
 * `Project-05:` **RGB Color Blender, Using GDB, Name, Compare**
 * `Project-06:` **BubbleSort, SubString, Compute, StringLength**
 * `Project-07:` **Quicksort, Fibonacci, Multiply**
