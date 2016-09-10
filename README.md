@@ -1,4 +1,4 @@
-#CS25000 Computer Architecture &mdash; Purdue University Coursework
+# CS25000 Computer Architecture &mdash; Purdue University Coursework
 The repository contains the entire collection of `Computer Architecture` coursework as part of the `Purdue University Undergraduate Curriculum.` The instructor for the course was [Dr. Umesh Bellur](https://www.cse.iitb.ac.in/~umesh/).
 
 The folder contains **Projects** assigned during the semester.
